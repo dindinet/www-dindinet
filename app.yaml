@@ -1,4 +1,4 @@
-application: mgh-rrt
+application: www-dindinet-site
 version: 1
 runtime: python27
 api_version: 1
@@ -6,21 +6,7 @@ threadsafe: true
 
 
 handlers:
-- url: /show
-  script: app.app
-  login: required
-
 - url: /
-  script: app.app
-
-- url: /addwhohash
-  script: app.app
-
-- url: /who/.*
-  script: app.app
-  #login: required
-
-- url: /index.html
   static_files: static/index.html
   upload: static/index.html
 
@@ -29,12 +15,11 @@ handlers:
   static_files: static/\1
   upload: static/(.*\.html)
 
-- url: /img
-  static_dir: static/img
+- url: /assets/img
+  static_dir: static/assets/img
 
-libraries:
-- name: jinja2
-  version: latest
+- url: /assets/css
+  static_dir: static/assets/css
 
-- name: ssl
-  version: latest
+- url: /assets/js
+  static_dir: static/assets/js
